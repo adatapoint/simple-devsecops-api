@@ -4,6 +4,8 @@ name: CI de Mi API
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   pruebas:
