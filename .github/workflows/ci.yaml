@@ -29,3 +29,9 @@ jobs:
     - name: Correr los Tests
       run: |
         pytest
+
+    - name: Autenticar en GCP
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: 'projects/1025423900548/locations/global/workloadIdentityPools/github-pool-v2/providers/github-provider'
+          service_account: 'github-deployer@project-acf12a19-9bf8-4ac9-8f8.iam.gserviceaccount.com'
