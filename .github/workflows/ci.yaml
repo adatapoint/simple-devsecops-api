@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   pruebas:
     runs-on: ubuntu-latest  # GitHub nos presta una compu con Linux
