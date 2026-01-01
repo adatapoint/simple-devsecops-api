@@ -44,17 +44,17 @@ jobs:
 
     - name: Configure Docker for GCP
       run: |
-        gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+        gcloud auth configure-docker southamerica-east1-docker.pkg.dev --quiet
 
     - name: Build and Push Docker Image
       run: |
-        docker build -t us-central1-docker.pkg.dev/project-acf12a19-9bf8-4ac9-8f8/simple-api-repo/sumar-api:latest .
-        docker push us-central1-docker.pkg.dev/project-acf12a19-9bf8-4ac9-8f8/simple-api-repo/sumar-api:latest
+        docker build -t southamerica-east1-docker.pkg.dev/project-acf12a19-9bf8-4ac9-8f8/simple-api-repo/sumar-api:latest .
+        docker push southamerica-east1-docker.pkg.dev/project-acf12a19-9bf8-4ac9-8f8/simple-api-repo/sumar-api:latest
 
     - name: Deploy to Cloud Run
       run: |
         gcloud run deploy sumar-api \
-          --image us-central1-docker.pkg.dev/project-acf12a19-9bf8-4ac9-8f8/simple-api-repo/sumar-api:latest \
-          --region us-central1 \
+          --image southamerica-east1-docker.pkg.dev/project-acf12a19-9bf8-4ac9-8f8/simple-api-repo/sumar-api:latest \
+          --region southamerica-east1 \
           --platform managed \
           --allow-unauthenticated
