@@ -1,0 +1,29 @@
+name: CI de Mi API
+
+# Cuándo se ejecuta: cada vez que hagas "git push" a la rama main
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest  # GitHub nos presta una compu con Linux
+
+    steps:
+    - name: Descargar el código
+      uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Instalar librerías
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install httpx  # Necesario para que el test hable con la API
+
+    - name: Correr los Tests
+      run: |
+        pytest
