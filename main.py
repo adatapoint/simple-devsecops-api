@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/sumar")
 def sumar(a: int, b: int):
-    return {"resultado": a - b}
+    return {"resultado": a + b}
